@@ -1,0 +1,72 @@
+ScreenManager:
+    HomeScreen:
+        id:home
+        name:'home'
+
+<HomeScreen>:
+    FloatLayout:
+        Label:
+            text:'Your Random meal for today'
+            font_size:60
+            pos_hint:{'top':.9}
+            size_hint:1,.1
+            color:1,0,1,1
+        AsyncImage:
+            source: app.image
+            pos_hint:{'top':.8}
+            size_hint:1,.35
+        Label:
+            text:app.name
+            font_size:50
+            pos_hint:{'top':.45}
+            size_hint:1,.1
+            color:0,0,0,1
+        Label:
+            text:app.category
+            font_size:50
+            pos_hint:{'top':.3,'left':1}
+            size_hint:.3,.1
+            color:0,0,0,1
+        MDRaisedButton:
+            pos_hint:{'top':.32,'right':.65}
+            size_hint:.3,.05
+            text:'view'
+            on_press: app.view()
+        Label:
+            text:app.area
+            font_size:50
+            pos_hint:{'top':.3,'right':.9}
+            size_hint:.3,.1
+            color:0,0,0,1
+        MDIconButton:
+            pos_hint:{'top':.17,'right':.77}
+            user_font_size: "48sp"
+            icon: 'google-plus-box'
+            on_press: app.goole()
+        Label:
+            text:'<area>'
+            font_size:40
+            pos_hint:{'top':.25,'right':.85}
+            size_hint:.2,.1
+            color:0,1,1,1
+        Label:
+            text: 'Ingredients'
+            font_size:40
+            pos_hint:{'top':.22,'left':.5}
+            size_hint:1,.1
+            color:1,0,0,1
+        ScrollView:
+            pos_hint:{'top':.1,'left':.5}
+            size_hint:1,.15
+            GridLayout:
+                id: ingredient_list
+                cols:1
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height:'50dp'
+                row_force_default: True
+        MDRaisedButton:
+            text: "Open list bottom sheet"
+            on_release: app.show_example_list_bottom_sheet()
+            pos_hint: {"top": 1}
+            size_hint:.2,.1
